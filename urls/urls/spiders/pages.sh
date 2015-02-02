@@ -10,8 +10,8 @@
 
 
 PAGE=0
-
-while [ $PAGE -lt 5 ];do
+rm urls.txt
+while [ $PAGE -lt 10 ];do
 	scrapy crawl urls -a pageno=$PAGE
 	PAGE=$(( $PAGE + 1))
 done
