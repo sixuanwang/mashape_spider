@@ -1,5 +1,5 @@
 
-a spider to scrape mashape.com 
+a spider to scrape mashape.com to the API signature format for SAMSaaS
 
 mashape.com is the largest world-class marketplace to consume, 
 distribute, manage, and monitor both private and public APIs 
@@ -23,10 +23,8 @@ steps for Selenium env setup:
 
 a. Download selenium server from http://www.seleniumhq.org/download/   selenium-server-standalone-2.37.0.jar
 
-b. Install Selenium Safari(or other web browers) Webdriver Extension
-Note: webdriver is not found in Apple Extensions, a workaround is to install it manually, see:
-https://code.google.com/p/selenium/issues/detail?id=7933
-
+b. Install Selenium Chrome(or other web browers) Webdriver Extension
+a dir can be found inside the folder
 c. Install Selenium Client & WebDriver Language Bindings for Python: pip install selenium
 
 
