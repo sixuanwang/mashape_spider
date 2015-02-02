@@ -141,16 +141,31 @@ class MashapeSpider(scrapy.Spider):
 			api["url"] = response_dict["url"]
 			api["input_parameters"] = request_dict["input_parameters"]
 			#api["api_example"] = response_dict["code_snippet"]
-			api["output_parameters"] = response_dict["output_parameters"]
+			#api["output_parameters"] = response_dict["output_parameters"]
 			
 			#sixuan: extract output parameters out:
 			#for example: ["{\n  \"latitude\": 37.79402839999999,\n  \"longitude\": -122.4028156,\n  \"region\": \"California\",\n  \"country\": \"United States\"\n}"]
 			#######HEHEHEHEH: change output file with parameter, separate by ?,?, get name from ??, type can be String, boolean, int, double
-			output_p = {}
-			input_p['name'] = input_names[i]
-			input_p['type'] = input_types[i]
-			request_dict['input_parameters'].append(input_p)
 			
+			api["output_parameters"] = []
+			outputList = response_dict["output_parameters"][0].split(',')
+			for outputitem in outputList:   #for each
+				o_itemPair = outputitem.split(':')
+				o_name = o_itemPair[0].split('"')[1::2][0]
+				o_type = ""
+				if '"' in o_itemPair[1]:
+					o_type = 'String'
+				elif 'true' in o_itemPair[1] or 'false' in o_itemPair[1]:
+					o_type = 'Boolean'
+				elif '.' in o_itemPair[1]:
+					o_type = 'Double'
+				else:
+					o_type = 'Int'
+			
+				output_p = {}		
+				output_p['name'] = o_name
+				output_p['type'] = o_type
+				api["output_parameters"].append(output_p)			
 			
 			self.api_all.append(api)
 		
