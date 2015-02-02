@@ -4,7 +4,7 @@
 # and it output the API input/output to file "api.json"
 
 # Usage: sh urls.sh
-# Author: Peiwen Chen
+# Author: Sixuan Wang, Peiwen Chen
 # Date: Jan 21. 2015
 
 CNT=0

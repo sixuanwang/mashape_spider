@@ -1,7 +1,7 @@
 """
 selenium is used with scrapy to scrape dynamic content
 parse the API has only one method
-Author: Peiwen Chen
+Author: Sixuan Wang, Peiwen Chen
 Date: Jan 4, 2015
 """
 
